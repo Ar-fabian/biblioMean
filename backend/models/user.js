@@ -14,9 +14,10 @@ const userSchema = new mongoose.Schema({
 
 userSchema.method.generateJWT = function () {
     return jwt.sign({
-        _id: _id,
+        _id: this._id,
         name: this.name,
-        email: this.email
+        email: this.email,
+        books: this.books
     },"secretKey");
 }
 
