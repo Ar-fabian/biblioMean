@@ -7,12 +7,12 @@ const userSchema = new mongoose.Schema({
     password:String,
     books:String,
     date:{ 
-        type:date,
+        type:Date,
         default:Date.now
     }
 });
 
-userSchema.method.generateJWT = function () {
+userSchema.methods.generateJWT = function () {
     return jwt.sign({
         _id: this._id,
         name: this.name,
